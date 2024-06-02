@@ -26,7 +26,26 @@
                 <a href="/salaries">Salaries</a>
                 <a href="/companies">Companies</a>
             </div>
-            <div><a href="/post">Post a Job</a></div>
+
+            @auth
+                <div class="space-x-6 font-bold flex">
+                    <a href="/jobs/create">Post a Job</a>
+                    <form action="logout" method="POST">
+                        @csrf
+                        @method('DELETE')
+    
+                        <button type="submit">Log out</button>
+                    </form>
+                </div>
+
+            @endauth
+
+            @guest
+                <div class="space-x-6 font-bold ">
+                    <a href="/register">Sign Up</a>
+                    <a href="/login">Log in</a>
+                </div>
+            @endguest
         </nav>
         <main class="mt-10 max-w-[986px] mx-auto">
             {{ $slot }}

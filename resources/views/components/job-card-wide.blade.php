@@ -15,12 +15,9 @@
     </div>
     
     <div>
-        <x-tag>tag</x-tag>
-        <x-tag>tag</x-tag>
-        <x-tag>tag</x-tag>
-        <x-tag>tag</x-tag>
-        {{-- @foreach ($job->tags as $tag)
+        {{-- <x-tag>tag</x-tag> --}}
+        @foreach ($job->tags as $tag)
             <x-tag :$tag />
-        @endforeach --}}
-    </div>
+        @endforeach
+    </div>  
 </x-panel>
